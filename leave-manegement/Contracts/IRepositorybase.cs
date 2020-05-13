@@ -10,7 +10,7 @@ namespace leave_manegement.Contracts
         T FindById(int id);
         bool Create(T entity);
         bool Update(T entity);
-        bool Delte(T entity);
+        bool Delete(T entity);
         bool Save();
     }
 }
