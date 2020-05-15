@@ -20,11 +20,14 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2" />
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Contracts\" />
     <Folder Include="Repositories\" />
     <Folder Include="Mappings\" />
+    <Folder Include="Views\LeaveTypes\" />
   </ItemGroup>
 </Project>

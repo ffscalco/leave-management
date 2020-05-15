@@ -17,7 +17,7 @@ namespace leave_manegement.Models
         [Required]
         public DateTime EndDate { get; set; }
 
-        public DetailsLeaveTypeViewModel LeaveType { get; set; }
+        public LeaveTypeViewModel LeaveType { get; set; }
         public string LeaveTypeId { get; set; }
         public IEnumerable<SelectListItem> LeaveTypes { get; set; }
 
