@@ -1,0 +1,53 @@
+@model leave_manegement.Models.ViewAllocationsViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details for - @Model.Employee.Fullname()</h1>
+
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Employee.UserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayNameFor(model => model.Employee.Firstname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Employee.Lastname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayNameFor(model => model.Employee.Email)
+        </dd>
+    </dl>
+
+</div>
+
+<hr />
+
+<h2>Leave Allocations</h2>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        @foreach (var item in Model.LeaveAllocations)
+        {
+            <li class="list-group-item">
+                <h6>
+                    @item.LeaveType.Name <span class="badge badge-secondary">@item.NumberOfDays</span>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="fa fa-pencil"></i>
+                        Edit
+                    </a>
+                </h6>
+                
+                
+            </li>
+        }
+    </ul>
+</div>
+
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

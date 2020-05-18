@@ -35,7 +35,7 @@ namespace leave_manegement
 
             services.AddAutoMapper(typeof(MappingProfile));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<Employee>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -47,7 +47,7 @@ namespace leave_manegement
         public void Configure(
             IApplicationBuilder app,
             IWebHostEnvironment env,
-            UserManager<IdentityUser> userManager,
+            UserManager<Employee> userManager,
             RoleManager<IdentityRole> roleManager
         )
         {

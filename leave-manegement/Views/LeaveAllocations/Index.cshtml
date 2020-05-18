@@ -1,0 +1,44 @@
+@model leave_manegement.Models.CreateLeaveAllocationViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Leave Types</h1>
+<hr />
+
+<p>
+    <a asp-action="Create" class="btn btn-success">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Create
+    </a>
+</p>
+
+<table id="tblDataTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                Leave Types
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LeaveTypes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-action="SetLeave" asp-route-id="@item.Id" class="btn btn-outline-success">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        Allocate To Employees
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

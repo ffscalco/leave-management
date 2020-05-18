@@ -3,7 +3,7 @@ namespace leave_manegement.Models
 {
     public class EmployeeViewModel
     {
-        public string id { get; set; }
+        public string Id { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string UserName { get; set; }
@@ -12,5 +12,10 @@ namespace leave_manegement.Models
         public string TaxId { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DateTime DateJoined { get; set; }
+
+        public string Fullname()
+        {
+            return Firstname + Lastname;
+        }
     }
 }
