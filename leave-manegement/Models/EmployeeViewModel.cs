@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace leave_manegement.Models
 {
     public class EmployeeViewModel
@@ -13,6 +15,7 @@ namespace leave_manegement.Models
         public DateTime DateOfBirth { get; set; }
         public DateTime DateJoined { get; set; }
 
+        [Display(Name = "Full Name")]
         public string Fullname()
         {
             return Firstname + Lastname;

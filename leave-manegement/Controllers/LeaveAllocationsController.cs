@@ -99,44 +99,6 @@ namespace leave_manegement.Controllers
             return View(model);
         }
 
-        // GET: LeaveAllocations/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: LeaveAllocations/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(LeaveTypeViewModel model)
-        {
-            try
-            {
-                //if(!ModelState.IsValid)
-                //{
-                //    return View(model);
-                //}
-
-                //var leaveType = _mapper.Map<LeaveType>(model);
-                //leaveType.DateCreated = DateTime.Now;
-
-                //var isSuccess = _leaveallocationrepo.Create(leaveType);
-
-                //if (!isSuccess)
-                //{
-                //    ModelState.AddModelError("", "Something Went Wrong...");
-                //    return View(model);
-                //}
-
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         // GET: LeaveAllocations/Edit/5
         public ActionResult Edit(int id)
         {
@@ -181,25 +143,6 @@ namespace leave_manegement.Controllers
             {
                 return View(model);
             }
-        }
-
-        // GET: LeaveAllocations/Delete/5
-        public ActionResult Delete(int id)
-        {
-            if (!_leaveallocationrepo.isExists(id))
-            {
-                return NotFound();
-            }
-
-            var leaveType = _leaveallocationrepo.FindById(id);
-            var isSuccess = _leaveallocationrepo.Delete(leaveType);
-
-            if (!isSuccess)
-            {
-                return BadRequest();
-            }
-
-            return RedirectToAction(nameof(Index));
         }
     }
 }

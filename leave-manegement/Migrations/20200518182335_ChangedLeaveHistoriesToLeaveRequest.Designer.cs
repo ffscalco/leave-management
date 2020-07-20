@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using leave_manegement.Data;
 
 namespace leave_manegement.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200518182335_ChangedLeaveHistoriesToLeaveRequest")]
+    partial class ChangedLeaveHistoriesToLeaveRequest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -278,8 +280,8 @@ namespace leave_manegement.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("LeaveTypeId")
-                        .HasColumnType("int");
+                    b.Property<string>("LeaveTypeId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("RequestingEmployeeId")
                         .HasColumnType("nvarchar(450)");
@@ -412,11 +414,9 @@ namespace leave_manegement.Migrations
                         .WithMany()
                         .HasForeignKey("ApprovedById");
 
-                    b.HasOne("leave_manegement.Data.LeaveType", "LeaveType")
+                    b.HasOne("leave_manegement.Data.Employee", "LeaveType")
                         .WithMany()
-                        .HasForeignKey("LeaveTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LeaveTypeId");
 
                     b.HasOne("leave_manegement.Data.Employee", "RequestingEmployee")
                         .WithMany()
